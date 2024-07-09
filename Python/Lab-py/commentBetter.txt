@@ -1,0 +1,6 @@
+
+#comments Better
+#TODO output --> ['cody', 'aaron', 'bernice']
+#* output --> ['cody', 'aaron', 'bernice']
+#! output --> ['cody', 'aaron', 'bernice']
+#? shift + option + up, down -> Copy 
