@@ -1,4 +1,6 @@
-#14. While loop
+
+#* 14. While loop
+
 i = 1
 sum = 0
 while (i <= 10):

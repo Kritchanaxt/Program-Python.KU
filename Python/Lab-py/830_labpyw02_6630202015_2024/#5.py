@@ -1,4 +1,5 @@
-#Sum
+
+#? 5. Sum
 
 count = 0 
 sum = 0

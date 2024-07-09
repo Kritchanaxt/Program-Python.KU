@@ -1,3 +1,4 @@
+
 Setup project python in vscode basic
 1. Open terminal 
 2. Use command python3 --version

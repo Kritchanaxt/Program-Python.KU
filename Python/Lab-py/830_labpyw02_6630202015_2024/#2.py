@@ -1,3 +1,5 @@
-#2.loop for
+
+#? 2.loop for
+
 for i in [5,4,3,2,1]:
     print(i)

@@ -1,4 +1,6 @@
-#7. 
+
+#! 7. Use enumerate and str()
+
 dogs = ['border collie', 'australian cattle dog', 'labrador retriever']
 
 print("Result for the dog show are as follows:\n")

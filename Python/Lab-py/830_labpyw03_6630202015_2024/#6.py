@@ -1,4 +1,6 @@
-#6.
+
+#! 6. Use text.title
+
 students = ['bernice', 'arron', 'cody']
 
 for student in students:

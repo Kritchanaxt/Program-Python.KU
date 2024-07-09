@@ -1,3 +1,6 @@
+
+#! 11. loops, Arrays.
+
 numlist = []
 print("Enter total number of elements: \t")
 n = int(input())
@@ -18,4 +21,3 @@ for i in range(1, n + 1):
     print("Even numbers list \t: ", evenlist)
     print("Odd numbers list \t: ", Oddlist)
 
-    

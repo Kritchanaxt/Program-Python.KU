@@ -1,4 +1,6 @@
-#2 String
+
+#* 2. String
+
 str = "Hello World"
 print(str)
 print(str[0])

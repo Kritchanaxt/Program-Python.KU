@@ -1,4 +1,6 @@
-#9. Grading System, A, B, C, D, E
+
+#* 9. Grading System, A, B, C, D, E
+
 score = int(input("Input Score: "))
 
 if score >= 90 and score <= 100:

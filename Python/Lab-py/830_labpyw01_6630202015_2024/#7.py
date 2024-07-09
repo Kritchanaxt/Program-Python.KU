@@ -1,4 +1,6 @@
-#7 If condition with else 
+
+#* 7 If condition with else 
+
 floor = int(input("Floor number:"))
 actualfoor = floor
 if floor > 13: 

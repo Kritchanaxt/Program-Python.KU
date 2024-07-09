@@ -1,4 +1,6 @@
-#11. Leap Year with Function
+
+#* 11. Leap Year with Function
+
 def CheckLeapYear(QYear):
     if ((QYear % 400 == 0) or (QYear %100 != 0) and (QYear%4 == 0)):
         print("This is a leap year")

@@ -1,4 +1,6 @@
-#4 String concatenation
+
+#* 4. String concatenation
+
 word1 = "Good"
 word2 = "morning"
 word3 = "to you too!"

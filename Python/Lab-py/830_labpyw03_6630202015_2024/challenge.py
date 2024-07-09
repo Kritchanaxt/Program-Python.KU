@@ -1,3 +1,6 @@
+
+#! add Sum and Average in loops
+
 numlist = []
 print("Enter total number of elements: \t")
 n = int(input())

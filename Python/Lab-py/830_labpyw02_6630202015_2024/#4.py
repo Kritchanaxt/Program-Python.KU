@@ -1,4 +1,5 @@
-#4 .for loop, range function
+
+#? 4 .for loop, range function
 
 sum = 0
 for i in range(1, 101, 2):

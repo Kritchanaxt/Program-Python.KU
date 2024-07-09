@@ -1,4 +1,6 @@
-#5 String function
+
+#* 5 String function
+
 text = "abcdefghij"
 print(len(text))
 print(text[4])
