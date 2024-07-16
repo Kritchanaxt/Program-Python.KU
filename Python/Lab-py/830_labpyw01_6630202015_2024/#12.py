@@ -35,5 +35,7 @@ get_grade(score)
 
 
 
-
-    
+#python by nuttaphon
+l = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+for i in l:
+    print(f"Floor {i} is {i-1} actual floor") if i > 13 else print(f"Floor {i} is actual floor") 
