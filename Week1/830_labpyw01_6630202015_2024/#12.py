@@ -21,7 +21,7 @@ get_grade(score)
 
 #* 12.1. Grade with Ternary Operator
 #! ternary operator
-#? Struct: "value" if_true if condition else "value" if_false
+#? Structure: "value" if_true if condition else "value" if_false
 
 # def get_grade(score):
 #     return "Grade A" if 90 <= score <= 100 else (
