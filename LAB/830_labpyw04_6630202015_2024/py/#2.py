@@ -1,5 +1,6 @@
 
 #? 2. Loop list of creating Dictionary
+
 color = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 d = dict()
 for color in color:

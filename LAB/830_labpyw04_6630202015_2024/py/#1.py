@@ -1,5 +1,6 @@
 
 #? 1.Create dictionary
+
 a = {'Obama': 'Hawaii', 'Bush' : 'Texas', 'Clinton' : 'Arkansas', 'Trump' : 'New York'}
 
 type(a)
