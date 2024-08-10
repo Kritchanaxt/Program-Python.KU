@@ -11,7 +11,7 @@ def get_grade(score):
     elif score >= 60 and score <= 69:
         print("Grade: D")
     elif score >= 50 and score <= 59:
-        print("Grade: E")
+        print("Grade: F")
     else:
         print("ERROR")
 
