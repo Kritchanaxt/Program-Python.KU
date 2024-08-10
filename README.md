@@ -213,5 +213,17 @@ class Person:
 person = Person("Alice", 30)
 print(person.greet())  # ผลลัพธ์: Hello, my name is Alice and I am 30 years old.
 ```
+26. split()
+- เป็นเมธอดใน Python ที่ใช้แยกสตริงออกเป็นลิสต์ของซับสตริงตามตัวคั่นที่กำหนดไว้
 
+**ค่าเริ่มต้น:** แยกตามช่องว่าง
+**ใช้ตัวคั่น:** แยกตามตัวอักษรหรือตัวคั่นที่ระบุ
+**จำกัดการแยก:** สามารถจำกัดจำนวนครั้งที่ต้องการแยก
 
+ตัวอย่าง
+การแยกโดยค่าเริ่มต้น (โดยช่องว่าง):
+```
+text = "Hello world Python"
+result = text.split()
+print(result)  # ผลลัพธ์: ['Hello', 'world', 'Python']
+```
