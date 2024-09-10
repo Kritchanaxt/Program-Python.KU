@@ -215,4 +215,30 @@ class Person:
 person = Person("Alice", 30)
 print(person.greet())  # ผลลัพธ์: Hello, my name is Alice and I am 30 years old.
 ```
+### 23.zip() 
+- เป็นฟังก์ชันใน Python ที่ใช้ในการจับคู่หรือรวมลิสต์หลายลิสต์เข้าด้วยกัน
+- โดยฟังก์ชัน zip() จะทำงานโดยจับคู่สมาชิกจากแต่ละลิสต์ตามลำดับเดียวกันและสร้างเป็น tuple ในแต่ละรอบ
+
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+
+ตัวอย่างเช่น:
+```
+zipped = zip(list1, list2)
+print(list(zipped))
+```
+ผลลัพธ์:
+```
+[(1, 'a'), (2, 'b'), (3, 'c')]
+```
+
+การใช้งาน zip ในโค้ด
+```
+products = [Product("Pencil", 1200, 22), Product("Lotion", 5000, 200)]
+quantities = [5, 10]
+
+for product, qty in zip(products, quantities):
+    print(product.name, qty)
+```
+- ในกรณีนี้ zip(products, quantities) จะจับคู่สินค้าแต่ละตัวกับจำนวนที่กำหนดไว้ (เช่น "Pencil" จับคู่กับ 5 และ "Lotion" จับคู่กับ 10)
 
