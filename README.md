@@ -232,7 +232,7 @@ print(list(zipped))
 [(1, 'a'), (2, 'b'), (3, 'c')]
 ```
 
-การใช้งาน zip ในโค้ด
+**การใช้งาน zip ในโค้ด**
 ```
 products = [Product("Pencil", 1200, 22), Product("Lotion", 5000, 200)]
 quantities = [5, 10]
