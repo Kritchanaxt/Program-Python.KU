@@ -5,7 +5,7 @@ class Person:
         self.age = age
 
     def introduce(self):
-        return f"My name is {self.name}. I am {self.age} years old."
+        return f"\nMy name is {self.name}. I am {self.age} years old.\n"
     
 person1 = Person('Got', 60)
 print(person1.introduce())

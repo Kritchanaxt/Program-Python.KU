@@ -10,10 +10,10 @@ class Puppy(Pet):
         self.age = age
 
     def bark(self):
-        return "Woof!"
+        return "\nWoof!"
     
     def introduce(self):
-        return f"My name is {self.name}.\nI am species is {self.species} and age is {self.age} years old."
+        return f"My name is {self.name}.\nI am species is {self.species} and age is {self.age} years old.\n"
 
 puppy = Puppy("Buddy", "Dog", 5)
 print(puppy.bark())

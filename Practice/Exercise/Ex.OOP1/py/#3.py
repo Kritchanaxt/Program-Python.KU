@@ -1,32 +1,38 @@
 
 class BankAccount:
-    def __init__(self, balance=0):
+    def __init__(self, balance):
         self.balance = balance
 
     def deposit(self, amount):
         if amount > 0:
             self.balance += amount
-            print(f"Deposited {amount:.2f}. Current balance: {self.balance:.2f} Baht.")
+            print(f"Deposited {amount:.2f}.\n- Current balance: {self.balance:.2f} Baht.")
         else:
-            print("Deposit amount must be positive.")
+            print("- Deposit amount must be positive.")
 
     def withdraw(self, amount):
         if 0 < amount <= self.balance:
             self.balance -= amount
-            print(f"Withdrew {amount:.2f}. Current balance: {self.balance:.2f} Baht.")
+            print(f"Withdraw {amount:.2f}.\n- Current balance: {self.balance:.2f} Bath.")
         elif amount > self.balance:
-            print("Insufficient funds.")
+            print("- Insufficient funds.")
         else:
-            print("Withdraw amount must be positive.")
+            print("- Withdraw amount must be positive.")
 
-# Start 500 baht
 account = BankAccount(500)
+print(f"!* Bank Account *!\n- Current balance: {account.balance:.2f} Bath.")
+print("-----------------------------")
 
-# Deposit money
-account.deposit(200)
+deposit_amount = [200, 0]
 
-# Withdraw 100 baht
-account.withdraw(100)
+for amount in deposit_amount:
+    account.deposit(amount)
 
-# Withdraw money exceeding balance
-account.withdraw(1000)
+print("-----------------------------")
+
+withdraw_amount = [100, 1000, 0]
+
+for amount in withdraw_amount:
+    account.withdraw(amount)
+
+print("-----------------------------")
