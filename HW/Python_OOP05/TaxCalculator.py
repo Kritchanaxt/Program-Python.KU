@@ -28,7 +28,9 @@ people = [
 
 calculator = TaxCalculator()
 
+
 for name, last_name, year, revenue in people:
-    print(f"{'-'*40}\n{name} {last_name}, Year {year}:
-          \n- Revenue: {revenue:,.2f} Baht
-          \n- Tax: {calculator.calculate_tax(revenue):,.2f} Baht")
+    print(f"{'-'*40}\n"
+          f"{name} {last_name}, Year {year}:\n"
+          f"- Revenue: {revenue:,.2f} Baht\n"
+          f"- Tax: {calculator.calculate_tax(revenue):,.2f} Baht")
