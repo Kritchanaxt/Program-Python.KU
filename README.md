@@ -152,7 +152,7 @@
 - **Method Behavior** (Overloading, Overwriting, Overriding, Special Methods, Static Methods) เน้นพฤติกรรมการทำงานของเมธอด
 - **Key Concepts** (Polymorphism, Abstraction, Encapsulation) เน้นแนวทางการจัดการข้อมูลและพฤติกรรมของออบเจ็กต์
 
-## Special Methods
+# Special Methods
 
 ### 1. **`__init__(self, ...)`**
    - เมธอดตัวสร้าง (Constructor) ที่ใช้ในการกำหนดค่าเริ่มต้นให้กับออบเจ็กต์เมื่อถูกสร้างขึ้น
