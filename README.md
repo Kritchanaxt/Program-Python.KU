@@ -264,6 +264,20 @@
                  raise StopIteration
      ```
 
+### 12. **`__hash__(self)`**
+   - เมธอดที่ใช้กำหนดค่า hash ของออบเจ็กต์ เพื่อให้สามารถใช้เป็นคีย์ในโครงสร้างข้อมูลอย่าง `set` หรือ `dict` ได้
+   - ค่าที่ได้จาก `__hash__` จะต้องไม่เปลี่ยนแปลง (immutable) เพื่อให้ทำงานได้ถูกต้องในการเปรียบเทียบออบเจ็กต์ที่มีค่าเท่ากัน
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __init__(self, name, age):
+             self.name = name
+             self.age = age
+         
+         def __hash__(self):
+             return hash((self.name, self.age))
+     ```
+
   
 # Highlight Python
 
