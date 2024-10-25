@@ -1,19 +1,19 @@
 
 class BankAccount:
-    def __init__(self, balance):
-       self.__balance = balance # Hide balance information
+   def __init__(self, balance):
+      self.__balance = balance # Hide balance information
 
-    def deposit(self, amount):
-       self.__balance += amount
+   def deposit(self, amount):
+      self.__balance += amount
 
-    def withdraw(self, amount):
-       if amount <= self.__balance:
-          self.__balance -= amount
-       else:
-          print("Insufficient balance")
+   def withdraw(self, amount):
+      if amount <= self.__balance:
+         self.__balance -= amount
+      else:
+         print("Insufficient balance")
 
-def get_balance(self):
-    return self.__balance
+   def get_balance(self):
+        return self.__balance
 
 # Create BankAccount object
 account = BankAccount(1000)
