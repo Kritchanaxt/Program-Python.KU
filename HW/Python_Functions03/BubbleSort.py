@@ -13,7 +13,7 @@ def bubble_sort(lst):
     for i in range(n-1):
         for j in range(0, n-i-1):
             count += 1
-            if lst[j] > lst[j+1] :
+            if lst[j] > lst[j+1]:
                 swap(lst, j, j+1)
 
         print(f"Round No: {i + 1} : {lst}")
