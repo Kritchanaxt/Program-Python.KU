@@ -151,6 +151,133 @@
 - **การสืบทอด** เน้นความสัมพันธ์ระหว่างคลาส
 - **Method Behavior** (Overloading, Overwriting, Overriding, Special Methods, Static Methods) เน้นพฤติกรรมการทำงานของเมธอด
 - **Key Concepts** (Polymorphism, Abstraction, Encapsulation) เน้นแนวทางการจัดการข้อมูลและพฤติกรรมของออบเจ็กต์
+
+# Special Methods
+
+### 1. **`__init__(self, ...)`**
+   - เมธอดตัวสร้าง (Constructor) ที่ใช้ในการกำหนดค่าเริ่มต้นให้กับออบเจ็กต์เมื่อถูกสร้างขึ้น
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __init__(self, name):
+             self.name = name
+     ```
+
+### 2. **`__str__(self)`**
+   - เมธอดที่ใช้แปลงออบเจ็กต์ให้เป็นสตริงสำหรับการแสดงผลที่เข้าใจได้ง่าย
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __str__(self):
+             return f"Person(name={self.name})"
+     ```
+
+### 3. **`__repr__(self)`**
+   - เมธอดที่ใช้แปลงออบเจ็กต์ให้เป็นสตริงที่สามารถใช้ในการสร้างออบเจ็กต์ใหม่ได้ โดยมักใช้สำหรับการดีบัก
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __repr__(self):
+             return f"Person('{self.name}')"
+     ```
+
+### 4. **`__len__(self)`**
+   - เมธอดที่ใช้กำหนดความยาวของออบเจ็กต์ โดยมักใช้กับคอนเทนเนอร์ เช่น ลิสต์, สตริง เป็นต้น
+   - ตัวอย่าง:
+     ```python
+     class MyList:
+         def __init__(self, data):
+             self.data = data
+         
+         def __len__(self):
+             return len(self.data)
+     ```
+
+### 5. **`__getitem__(self, key)`**
+   - เมธอดที่ใช้กำหนดการเข้าถึงค่าในออบเจ็กต์ด้วยการใช้ดัชนีหรือคีย์
+   - ตัวอย่าง:
+     ```python
+     class MyList:
+         def __getitem__(self, index):
+             return self.data[index]
+     ```
+
+### 6. **`__setitem__(self, key, value)`**
+   - เมธอดที่ใช้กำหนดการตั้งค่าของออบเจ็กต์ผ่านดัชนีหรือคีย์
+   - ตัวอย่าง:
+     ```python
+     class MyList:
+         def __setitem__(self, index, value):
+             self.data[index] = value
+     ```
+
+### 7. **`__delitem__(self, key)`**
+   - เมธอดที่ใช้กำหนดการลบค่าจากออบเจ็กต์ผ่านดัชนีหรือคีย์
+   - ตัวอย่าง:
+     ```python
+     class MyList:
+         def __delitem__(self, index):
+             del self.data[index]
+     ```
+
+### 8. **`__add__(self, other)`**
+   - เมธอดที่ใช้กำหนดพฤติกรรมของการใช้เครื่องหมายบวก (`+`) กับออบเจ็กต์
+   - ตัวอย่าง:
+     ```python
+     class Vector:
+         def __add__(self, other):
+             return Vector(self.x + other.x, self.y + other.y)
+     ```
+
+### 9. **`__eq__(self, other)`**
+   - เมธอดที่ใช้กำหนดพฤติกรรมการเปรียบเทียบความเท่ากัน (`==`)
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __eq__(self, other):
+             return self.name == other.name
+     ```
+
+### 10. **`__call__(self, ...)`**
+   - เมธอดที่ใช้ทำให้ออบเจ็กต์สามารถถูกเรียกใช้งานได้เหมือนกับเป็นฟังก์ชัน
+   - ตัวอย่าง:
+     ```python
+     class MyFunction:
+         def __call__(self, x):
+             return x * 2
+     ```
+
+### 11. **`__iter__(self)` และ `__next__(self)`**
+   - เมธอดที่ใช้ทำให้ออบเจ็กต์สามารถใช้งานในลูป `for` ได้ (Iterable และ Iterator)
+   - ตัวอย่าง:
+     ```python
+     class MyRange:
+         def __iter__(self):
+             self.current = 0
+             return self
+         
+         def __next__(self):
+             if self.current < 5:
+                 self.current += 1
+                 return self.current
+             else:
+                 raise StopIteration
+     ```
+
+### 12. **`__hash__(self)`**
+   - เมธอดที่ใช้กำหนดค่า hash ของออบเจ็กต์ เพื่อให้สามารถใช้เป็นคีย์ในโครงสร้างข้อมูลอย่าง `set` หรือ `dict` ได้
+   - ค่าที่ได้จาก `__hash__` จะต้องไม่เปลี่ยนแปลง (immutable) เพื่อให้ทำงานได้ถูกต้องในการเปรียบเทียบออบเจ็กต์ที่มีค่าเท่ากัน
+   - ตัวอย่าง:
+     ```python
+     class Person:
+         def __init__(self, name, age):
+             self.name = name
+             self.age = age
+         
+         def __hash__(self):
+             return hash((self.name, self.age))
+     ```
+
   
 # Highlight Python
 
@@ -166,235 +293,154 @@
           - ตัวอย่าง: `del my_list[1]` หรือ `del my_list`
         - `sort`: เรียงลำดับข้อมูลในรายการ
         - `reverse`: กลับลำดับของรายการ
-        - `insert`: แทรกค่าที่ตำแหน่งที่ระบุ
-        - `extend`: ขยายรายการด้วย iterable อื่น
-        - `clear`: ลบข้อมูลทั้งหมดในรายการ
+        - `insert`: แทรกค่าที่ตำแหน่งที่ระบุ### 1. List
+- เก็บข้อมูลหลายค่าที่เปลี่ยนแปลงได้ เช่น `[1, 2, 3]`
+    - ฟังก์ชัน:
+        - `append()`: เพิ่มค่าเข้าไป
+        - `remove()`: ลบค่าที่ตรงกัน
+        - `pop()`: ลบค่าตำแหน่งที่ระบุ
+        - `del`: ลบค่า หรือลบทั้งรายการ
+        - `sort()`, `reverse()`, `clear()`, `insert()`, `extend()`: จัดการข้อมูล
 
-### 2. tuple:
-- ชุดข้อมูลที่จัดเก็บข้อมูลหลายค่าในลำดับ ไม่สามารถเปลี่ยนแปลงได้ (immutable)
-    - ตัวอย่าง: `my_tuple = (1, 2, 3, 4)`
-    - ฟังก์ชันที่ใช้บ่อย:
-        - `count`: นับจำนวนครั้งที่ค่าเกิดขึ้นใน tuple
-        - `index`: คืนค่าดัชนีของค่าแรกที่พบใน tuple
+### 2. Tuple
+- เก็บข้อมูลหลายค่าที่แก้ไขไม่ได้ เช่น `(1, 2, 3)`
+    - ฟังก์ชัน:
+        - `count()`, `index()`: นับและค้นหาข้อมูล
 
-### 3. dictionary:
-- โครงสร้างข้อมูลที่จัดเก็บคู่ค่า key-value ไม่เรียงลำดับ และสามารถเปลี่ยนแปลงได้ (mutable)
-    - ตัวอย่าง: `my_dict = {'name': 'Alice', 'age': 25}`
-    - ฟังก์ชันที่ใช้บ่อย:
-        - `keys`: คืนค่าเป็นรายการของ keys ทั้งหมด
-        - `values`: คืนค่าเป็นรายการของ values ทั้งหมด
-        - `items`: คืนค่าเป็นรายการของคู่ key-value ทั้งหมด
-        - `get`: คืนค่า value ที่สัมพันธ์กับ key ถ้าไม่พบคืนค่าเริ่มต้นที่กำหนด
-        - `update`: อัพเดท dictionary ด้วย key-value จาก dictionary อื่น
-        - `pop`: ลบค่า key ที่ระบุและคืนค่า value ที่สัมพันธ์กับ key นั้น
-        - `popitem`: ลบและคืนคู่ key-value สุดท้ายที่ถูกเพิ่ม
-        - `clear`: ลบข้อมูลทั้งหมดใน dictionary
-        - `setdefault`: คืนค่า value ของ key ถ้าไม่มี key นี้ใน dictionary จะเพิ่ม key นี้เข้าไปและใช้ค่าเริ่มต้นที่กำหนด
+### 3. Dictionary
+- เก็บข้อมูลเป็นคู่ `key-value` เช่น `{'name': 'Alice', 'age': 25}`
+    - ฟังก์ชัน:
+        - `keys()`, `values()`, `items()`, `get()`, `update()`, `pop()`: จัดการข้อมูล
 
-### 4. reduce:
-- ใช้ในการรวมค่าทั้งหมดในรายการให้เป็นค่าเดียวโดยใช้ฟังก์ชันที่กำหนด
-    - ใช้กับ: `list`, `tuple`
-    - ตัวอย่าง: รวมค่าทั้งหมดในรายการ
-      ```python
-      from functools import reduce
-      result = reduce(lambda x, y: x + y, [1, 2, 3, 4])  # ผลลัพธ์คือ 10
-      ```
-      
-### 5. sum:
-- ใช้ในการหาผลรวมของค่าทั้งหมดในรายการหรือ iterable
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: หาผลรวมของรายการ
-      ```python
-      result = sum([1, 2, 3, 4])  # ผลลัพธ์คือ 10
-      ```
-
-### 6. ord:
-- ใช้ในการหาค่าตัวเลข ASCII ของตัวอักษรที่กำหนด
-    - ใช้กับ: ตัวอักษร (`str`)
-    - ตัวอย่าง: หาค่า ASCII ของ 'a'
-      ```python
-      result = ord('a')  # ผลลัพธ์คือ 97
-      ```
-
-### 7. cmp (Python 2 เท่านั้น):
-- ใช้ในการเปรียบเทียบค่าสองค่า
-    - ใช้กับ: ค่าใด ๆ (`int`, `str`, etc.)
-    - ตัวอย่าง: เปรียบเทียบค่าที่ 1 กับ 2
-      ```python
-      result = cmp(1, 2)  # ผลลัพธ์คือ -1
-      ```
-
-### 8. max:
-- ใช้ในการหาค่ามากที่สุดจากรายการหรือ iterable
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: หาค่ามากที่สุดในรายการ
-      ```python
-      result = max([1, 2, 3, 4])  # ผลลัพธ์คือ 4
-      ```
-
-### 9. min:
-- ใช้ในการหาค่าน้อยที่สุดจากรายการหรือ iterable
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: หาค่าน้อยที่สุดในรายการ
-      ```python
-      result = min([1, 2, 3, 4])  # ผลลัพธ์คือ 1
-      ```
-
-### 10. all:
-- ใช้ในการตรวจสอบว่าทุกค่าของ iterable เป็นจริง (True) หรือไม่
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: ตรวจสอบค่าทั้งหมดในรายการ
-      ```python
-      result = all([True, True, True])  # ผลลัพธ์คือ True
-      ```
-
-### 11. any:
-- ใช้ในการตรวจสอบว่ามีค่าหนึ่งค่าใดใน iterable เป็นจริง (True) หรือไม่
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: ตรวจสอบว่ามีค่าใดเป็นจริงในรายการ
-      ```python
-      result = any([False, True, False])  # ผลลัพธ์คือ True
-      ```
-
-### 12. len:
-- ใช้ในการหาความยาวของ iterable
-    - ใช้กับ: `list`, `tuple`, `set`, `str`, `dict`
-    - ตัวอย่าง: หาความยาวของรายการ
-      ```python
-      result = len([1, 2, 3, 4])  # ผลลัพธ์คือ 4
-      ```
-
-### 13. enumerate:
-- ตือ รูปย่อของค่า เช่น mylist -> index
-    - ใช้ในการสร้าง iterable ที่ประกอบด้วยคู่ของ index และค่าจาก iterable ที่กำหนด
-    - ใช้กับ: `list`, `tuple`, `str`
-    - ตัวอย่าง: สร้างคู่ index และค่าจากรายการ
-      ```python
-      result = list(enumerate(['a', 'b', 'c']))  # ผลลัพธ์คือ [(0, 'a'), (1, 'b'), (2, 'c')]
-      ```
-### 14. split()
-- เป็นเมธอดใน Python ที่ใช้แยกสตริงออกเป็นลิสต์ของซับสตริงตามตัวคั่นที่กำหนดไว้
-  - **ค่าเริ่มต้น:** แยกตามช่องว่าง
-  - **ใช้ตัวคั่น:** แยกตามตัวอักษรหรือตัวคั่นที่ระบุ
-  - **จำกัดการแยก:** สามารถจำกัดจำนวนครั้งที่ต้องการแยก
-
-ตัวอย่าง
-การแยกโดยค่าเริ่มต้น (โดยช่องว่าง):
+### 4. Reduce
+- รวมค่าทั้งหมดในรายการให้เป็นค่าเดียว
 ```python
-text = "Hello world Python"
-result = text.split()
-print(result)  # ผลลัพธ์: ['Hello', 'world', 'Python']
+from functools import reduce
+result = reduce(lambda x, y: x + y, [1, 2, 3])  # ผลลัพธ์: 6
 ```
 
-### 15. accumulate:
-- ใช้ในการสะสมค่าจาก iterable โดยใช้ฟังก์ชันสะสม
-    - ใช้กับ: `list`, `tuple`, `set`
-    - ตัวอย่าง: สะสมค่าจากรายการ
-      ```python
-      from itertools import accumulate
-      result = list(accumulate([1, 2, 3, 4]))  # ผลลัพธ์คือ [1, 3, 6, 10]
-      ```
-### 16. set:
-- ใช้ในการเก็บค่าที่ไม่ซ้ำกันและไม่มีลำดับ
-    - ตัวอย่าง: `set([1, 2, 2, 3])` -> `{1, 2, 3}`
-
-### 17. filter:
-- ใช้สำหรับกรองข้อมูลใน Collection โดยให้เงื่อนไข ค่าที่เป็นจริงจะถูกเก็บไว้
-    - ตัวอย่าง: `list(filter(lambda x: x > 2, [1, 2, 3, 4]))` -> `[3, 4]`
-
-### 18. map:
-- ใช้ในการแปลงค่าข้อมูลใน Collection โดยใช้เงื่อนไขหรือการประมวลผลที่กำหนด
-    - ตัวอย่าง: `list(map(lambda x: x * 2, [1, 2, 3, 4]))` -> `[2, 4, 6, 8]`
-
-### 19. lambda:
-- นิพจน์ที่กำหนดฟังก์ชันแบบไม่ระบุชื่อ
-    - ใช้กับ: การสร้างฟังก์ชันเล็ก ๆ ที่ใช้งานเพียงครั้งเดียว
-    - ตัวอย่าง: `lambda x: x + 1`
+### 5. Sum
+- คำนวณผลรวมของรายการ
 ```python
-# ฟังก์ชัน Lambda ที่หาผลรวมของสองค่า
-sum = lambda x, y: x + y
-print(sum(3, 4))  # ผลลัพธ์: 7
+result = sum([1, 2, 3])  # ผลลัพธ์: 6
 ```
-### 20. Iterators
-- Iterators เป็นออบเจ็กต์ที่ช่วยให้เราสามารถทำงานกับองค์ประกอบของ collection ทีละรายการได้
-  - ใช้กับ: `list`, `tuple`, `set`, `dict`, `str`
-  - เมธอดหลัก: `__iter__()` และ `__next__()`
 
-ตัวอย่าง:
+### 6. Ord
+- หาค่า ASCII ของตัวอักษร
+```python
+result = ord('a')  # ผลลัพธ์: 97
+```
+
+### 7. Max, Min
+- หาค่ามากหรือน้อยที่สุดในรายการ
+```python
+max_value = max([1, 2, 3])  # ผลลัพธ์: 3
+min_value = min([1, 2, 3])  # ผลลัพธ์: 1
+```
+
+### 8. All, Any
+- ตรวจสอบว่าค่าทั้งหมดเป็นจริงหรือมีค่าใดเป็นจริง
+```python
+result = all([True, True, False])  # ผลลัพธ์: False
+result = any([False, True, False])  # ผลลัพธ์: True
+```
+
+### 9. Len
+- หาความยาวของข้อมูล
+```python
+result = len([1, 2, 3])  # ผลลัพธ์: 3
+```
+
+### 10. Enumerate
+- เพิ่มหมายเลขลำดับให้ข้อมูล
+```python
+for index, value in enumerate(['a', 'b']):
+    print(index, value)  # ผลลัพธ์: 0 a, 1 b
+```
+
+### 11. Split
+- แยกสตริงเป็นลิสต์
+```python
+result = "Hello world".split()  # ผลลัพธ์: ['Hello', 'world']
+```
+
+### 12. Accumulate
+- สะสมค่าจากข้อมูล
+```python
+from itertools import accumulate
+result = list(accumulate([1, 2, 3]))  # ผลลัพธ์: [1, 3, 6]
+```
+
+### 13. Set
+- เก็บค่าที่ไม่ซ้ำกัน
+```python
+unique_values = set([1, 1, 2])  # ผลลัพธ์: {1, 2}
+```
+
+### 14. Filter
+- กรองข้อมูลตามเงื่อนไข
+```python
+result = list(filter(lambda x: x > 1, [1, 2, 3]))  # ผลลัพธ์: [2, 3]
+```
+
+### 15. Map
+- แปลงค่าตามเงื่อนไข
+```python
+result = list(map(lambda x: x * 2, [1, 2, 3]))  # ผลลัพธ์: [2, 4, 6]
+```
+
+### 16. Lambda
+- ฟังก์ชันแบบย่อ
+```python
+add = lambda x, y: x + y
+result = add(3, 4)  # ผลลัพธ์: 7
+```
+
+### 17. Iterator
+- วนลูปผ่านข้อมูลได้
 ```python
 my_list = [1, 2, 3]
-iterator = iter(my_list)  # สร้าง iterator จาก list
-
+iterator = iter(my_list)
 print(next(iterator))  # ผลลัพธ์: 1
-print(next(iterator))  # ผลลัพธ์: 2
-print(next(iterator))  # ผลลัพธ์: 3
 ```
 
-### 21. Inheritance (การสืบทอด)
-- Inheritance ช่วยให้เราสามารถสร้างคลาสใหม่ที่ใช้คุณสมบัติและพฤติกรรมจากคลาสแม่และเพิ่มคุณสมบัติใหม่หรือปรับปรุงคุณสมบัติเก่าได้
-  - ใช้กับ: การออกแบบคลาสเพื่อแบ่งปันคุณสมบัติและพฤติกรรมระหว่างคลาส
-
-ตัวอย่าง:
+### 18. Inheritance
+- สร้างคลาสใหม่ที่มีคุณสมบัติของคลาสแม่
 ```python
 class Animal:
-    def __init__(self, name):
-        self.name = name
-
     def speak(self):
-        raise NotImplementedError("Subclass must implement abstract method")
+        pass
 
 class Dog(Animal):
     def speak(self):
-        return f"{self.name} says Woof!"
+        return "Woof!"
 
-dog = Dog("Buddy")
-print(dog.speak())  # ผลลัพธ์: Buddy says Woof!
+dog = Dog()
+print(dog.speak())  # ผลลัพธ์: Woof!
 ```
 
-### 22. Classes and Objects
-- Classes เป็นพิมพ์เขียวสำหรับการสร้าง objects (ออบเจ็กต์) ที่มีคุณสมบัติและพฤติกรรมที่กำหนด
-  - ใช้กับ: การออกแบบและสร้างออบเจ็กต์ที่มีคุณสมบัติและพฤติกรรมเฉพาะ
-
-ตัวอย่าง:
+### 19. Class and Object
+- คลาสเป็นพิมพ์เขียวสำหรับสร้างออบเจ็กต์
 ```python
 class Person:
-    def __init__(self, name, age):
+    def __init__(self, name):
         self.name = name
-        self.age = age
 
-    def greet(self):
-        return f"Hello, my name is {self.name} and I am {self.age} years old."
-
-# สร้างออบเจ็กต์จากคลาส
-person = Person("Alice", 30)
-print(person.greet())  # ผลลัพธ์: Hello, my name is Alice and I am 30 years old.
+person = Person("Alice")
+print(person.name)  # ผลลัพธ์: Alice
 ```
-### 23.zip() 
-- เป็นฟังก์ชันใน Python ที่ใช้ในการจับคู่หรือรวมลิสต์หลายลิสต์เข้าด้วยกัน
-- โดยฟังก์ชัน zip() จะทำงานโดยจับคู่สมาชิกจากแต่ละลิสต์ตามลำดับเดียวกันและสร้างเป็น tuple ในแต่ละรอบ
 
-list1 = [1, 2, 3]
-list2 = ['a', 'b', 'c']
-
-ตัวอย่างเช่น:
+### 20. Zip
+- รวมลิสต์เข้าด้วยกัน
 ```python
-zipped = zip(list1, list2)
-print(list(zipped))
+zipped = zip([1, 2], ['a', 'b'])
+print(list(zipped))  # ผลลัพธ์: [(1, 'a'), (2, 'b')]
 ```
-ผลลัพธ์:
+
+### 21. Pass
+- ใช้เป็นตัวแทนคำสั่งที่ยังไม่พร้อม
 ```python
-[(1, 'a'), (2, 'b'), (3, 'c')]
+def my_function():
+    pass
 ```
 
-**การใช้งาน zip ในโค้ด**
-```python
-products = [Product("Pencil", 1200, 22), Product("Lotion", 5000, 200)]
-quantities = [5, 10]
-
-for product, qty in zip(products, quantities):
-    print(product.name, qty)
-```
-- ในกรณีนี้ zip(products, quantities) จะจับคู่สินค้าแต่ละตัวกับจำนวนที่กำหนดไว้ (เช่น "Pencil" จับคู่กับ 5 และ "Lotion" จับคู่กับ 10)
-
-### 24.pass 
-- คือคำสั่งที่ใช้เป็นตัวแทนในกรณีที่ต้องมีคำสั่งอยู่ตามโครงสร้าง แต่ยังไม่ต้องการให้มีการทำงานใดๆ ใช้เพื่อให้โปรแกรมไม่เกิดข้อผิดพลาดเมื่อต้องมีบล็อกโค้ด แต่ยังไม่ได้เขียนหรือยังไม่ได้ใช้งาน เช่น ในฟังก์ชัน วนลูป หรือคลาสที่ยังไม่ได้พัฒนา
