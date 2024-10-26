@@ -1,5 +1,6 @@
 
-#* 10. Caesar Cipher Encoding and Decoding
+
+#? Ex.Function2 - #10
 
 def caesar_cipher(text, shift):
     result = ""
@@ -18,10 +19,5 @@ shift = int(input("Enter shift value: "))
 encoded = caesar_cipher(text, shift)
 decoded = caesar_cipher(encoded, -shift)
 
-print("Encoded text:", encoded)
-print("Decoded text:", decoded)
-
-#? ตัวอย่างการใส่ข้อมูล:
-#* ถ้าใส่ Hello, World! เป็นข้อความ และใช้ค่าเลื่อน 3 จะได้ผลลัพธ์:
-#* Encoded: Khoor, Zruog!
-#* Decoded: Hello, World!
+print("Encoded: ", encoded)
+print("Decoded: ", decoded)

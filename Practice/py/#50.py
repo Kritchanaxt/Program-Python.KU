@@ -1,14 +1,16 @@
 
+#? Ex.OOP1 - #3
+
 class BankAccount:
     def __init__(self, balance):
         self.balance = balance
 
     def deposit(self, amount):
         if amount > 0:
-            self.balance += amount
-            print(f"Deposited {amount:.2f}.\n- Current balance: {self.balance:.2f} Baht.")
+            self.balance += amount 
+            print(f"deposited {amount:.2f}.\n- Current balance: {self.balance:.2f} Baht.")
         else:
-            print("- Deposit amount must be positive.")
+            print("- Deposit amount must be positive .")
 
     def withdraw(self, amount):
         if 0 < amount <= self.balance:

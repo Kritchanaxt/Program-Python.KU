@@ -12,3 +12,5 @@ while decimal > 0:
     decimal //= 2
 
 print("Binary representation:", binary)
+
+#! ตัวเลขฐานสิบ (decimal number)

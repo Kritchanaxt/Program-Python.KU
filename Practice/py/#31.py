@@ -1,7 +1,7 @@
 
-#* 4. Count Characters in a String
+#? Ex.Function1 - #4
 
-text = input("Enter a string 👍🏿 : ")
+text = input("Enter a string: ")
 char_count = {}
 
 for char in text:
@@ -10,4 +10,4 @@ for char in text:
 for char, count in char_count.items():
     print(f"'{char}' appears {count} items")
 
-print(char_count) 
+print(char_count)

@@ -1,4 +1,6 @@
 
+#? Ex.Function2 - #1
+
 decimal = int(input("Enter a decimal number: "))
 binary = ""
 
@@ -10,3 +12,5 @@ while decimal > 0:
     decimal //= 2
 
 print("Binary representation:", binary)
+
+#! ตัวเลขฐานสิบ (decimal number)

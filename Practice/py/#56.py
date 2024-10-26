@@ -1,3 +1,6 @@
+
+#? Ex.OOP1 - #9
+
 import random
 
 class Die:
@@ -12,7 +15,7 @@ class Game:
         results = [die.roll() for die in self.dice]
         return results
 
-game = Game(dice_count = 3) # Create a game with 3 dice 
+game = Game(dice_count = 3)  
 roll_results = game.roll_dice()
 
 print("Results of the dice rolls:", roll_results) 

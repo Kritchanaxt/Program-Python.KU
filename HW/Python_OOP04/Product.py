@@ -23,7 +23,7 @@ class Product:
 products = [
     Product("Pencil", 1200, 22),
     Product("Lotion", 5000, 200),
-    Product("Liptic", 120, 1500),
+    Product("Lipstick", 120, 1500),
     Product("Cushion", 150, 1400),
     Product("Powder", 380, 2500)
 ]

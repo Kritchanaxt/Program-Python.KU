@@ -1,6 +1,5 @@
 
 #? Library Management System
-
 class Book:
     def __init__(self, title, author, copies):
         self.title = title
@@ -15,17 +14,17 @@ class Member:
     def borrow_book(self, library, title):
         if len(self.borrowed_books) < 5 and library.lend_book(title):
             self.borrowed_books.append(title)
-            print(f"{self.name} ยืมหนังสือ {title}")
+            print(f"{self.name} borrowed the book {title}")
         else:
-            print("ไม่สามารถยืมหนังสือได้")
+            print("Unable to borrow the book")
 
     def return_book(self, library, title):
         if title in self.borrowed_books:
             self.borrowed_books.remove(title)
             library.return_book(title)
-            print(f"{self.name} คืนหนังสือ {title}")
+            print(f"{self.name} returned the book {title}")
         else:
-            print("ไม่มีหนังสือในรายการยืม")
+            print("The book is not in the borrowed list")
 
 class Library:
     def __init__(self):
@@ -36,7 +35,7 @@ class Library:
             self.books[book.title].copies += book.copies
         else:
             self.books[book.title] = book
-        print(f"เพิ่มหนังสือ {book.title} จำนวน {book.copies} เล่ม")
+        print(f"Added {book.copies} copies of the book {book.title}")
 
     def lend_book(self, title):
         if title in self.books and self.books[title].copies > 0:
@@ -53,6 +52,6 @@ class Library:
             self.books[title] = Book(title, "Unknown", 1)
 
     def report(self):
-        print("รายงานหนังสือในห้องสมุด:")
+        print("Library Book Report:")
         for title, book in self.books.items():
-            print(f"{title} - {book.copies} เล่ม")
+            print(f"{title} - {book.copies} copies")

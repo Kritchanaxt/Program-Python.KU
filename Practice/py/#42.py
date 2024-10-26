@@ -1,5 +1,5 @@
 
-#* 5. Find the Most Frequent Word in a String
+#? Ex.Function2 - #5
 
 text = input("Enter a string: ")
 words = text.split()
@@ -15,4 +15,3 @@ max_count = max(word_count.values())
 most_common_words = [word for word, count in word_count.items() if count == max_count]
 
 print("Most frequent word(s):", ' '.join(most_common_words))
-

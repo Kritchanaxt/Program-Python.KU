@@ -8,7 +8,7 @@ class Student:
         self.subjects.append(subject)
         print(f"Subject {subject} has been added for {self.name} and {self.grade}")
 
-student = Student("Wave", "Grade 10")
+student = Student("Wave", "Grade A")
 # student.add_subject("Math")
 # student.add_subject("Science")
 

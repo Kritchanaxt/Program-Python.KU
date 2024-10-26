@@ -13,3 +13,6 @@ def factorial(n):
 
 n = int(input("Enter a number to calculate factorial: "))
 print("Factorial:", factorial(n))
+
+#? ตัวอย่างการใส่ข้อมูล:
+#* ถ้าใส่ 5 จะได้ผลลัพธ์ Factorial: 120 เพราะ 5! = 5 × 4 × 3 × 2 × 1 = 120
