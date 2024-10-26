@@ -14,7 +14,7 @@ class Member:
     def borrow_book(self, library, title):
         if len(self.borrowed_books) < 5 and library.lend_book(title):
             self.borrowed_books.append(title)
-            print(f"{self.name} borrowed the book {title}")
+            print(f"{self.name} borrowed the book '{title}'")
         else:
             print("Unable to borrow the book")
 
@@ -22,7 +22,7 @@ class Member:
         if title in self.borrowed_books:
             self.borrowed_books.remove(title)
             library.return_book(title)
-            print(f"{self.name} returned the book {title}")
+            print(f"{self.name} returned the book '{title}'")
         else:
             print("The book is not in the borrowed list")
 
@@ -35,7 +35,7 @@ class Library:
             self.books[book.title].copies += book.copies
         else:
             self.books[book.title] = book
-        print(f"Added {book.copies} copies of the book {book.title}")
+        print(f"Added {book.copies} copies of the book '{book.title}'")
 
     def lend_book(self, title):
         if title in self.books and self.books[title].copies > 0:
@@ -55,3 +55,26 @@ class Library:
         print("Library Book Report:")
         for title, book in self.books.items():
             print(f"{title} - {book.copies} copies")
+
+library = Library()
+
+book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", 3)
+book2 = Book("1984", "George Orwell", 5)
+library.add_book(book1)
+library.add_book(book2)
+
+library.report()
+
+member = Member("John Doe")
+
+member.borrow_book(library, "1984")
+member.borrow_book(library, "The Great Gatsby")
+member.borrow_book(library, "The Catcher in the Rye")
+
+library.report()
+
+member.return_book(library, "1984")
+
+library.report()
+
+member.return_book(library, "The Catcher in the Rye")

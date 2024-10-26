@@ -9,7 +9,6 @@ class Vehicle(ABC):
         self.weight = weight
         self.mileage = 0
 
-    @abstractmethod
     def fuel_efficiency(self):
         pass
 
@@ -28,3 +27,8 @@ class Motorcycle(Vehicle):
 car = Car(150, 1200)
 truck = Truck(300, 4000)
 motorcycle = Motorcycle(100, 200)
+
+print("Car fuel efficiency:", car.fuel_efficiency())
+print("Truck fuel efficiency:", truck.fuel_efficiency())
+print("Motorcycle fuel efficiency:", motorcycle.fuel_efficiency())
+
